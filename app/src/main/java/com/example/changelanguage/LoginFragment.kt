@@ -30,6 +30,10 @@ class LoginFragment : Fragment() {
         buttonChangeLanguage.setOnClickListener {
             showChangeLang()
         }
+
+        aboutMyselfButton.setOnClickListener {
+            findNavController().navigate(R.id.detailsFragment)
+        }
     }
 
 
