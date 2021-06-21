@@ -1,7 +1,7 @@
 package com.example.changelanguage
 
 import android.app.AlertDialog
-import android.content.res.Configuration
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,7 +9,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import kotlinx.android.synthetic.main.fragment_login.*
-import java.util.*
 
 class LoginFragment : Fragment() {
 
@@ -34,6 +33,10 @@ class LoginFragment : Fragment() {
         aboutMyselfButton.setOnClickListener {
             findNavController().navigate(R.id.detailsFragment)
         }
+
+        buttonNextActivity.setOnClickListener {
+            startActivity(Intent(requireActivity(), SimpleActivity2::class.java))
+        }
     }
 
 
@@ -44,13 +47,13 @@ class LoginFragment : Fragment() {
         builder.setTitle("Change Language")
         builder.setSingleChoiceItems(langItem, -1) { dialog, which ->
             if (which == 0) {
-                Utils.changeLanguage("ur",context)
+                Utils.changeLanguage("ur", context)
             } else if (which == 1) {
-                Utils.changeLanguage("hi",context)
+                Utils.changeLanguage("hi", context)
             } else if (which == 2) {
-                Utils.changeLanguage("bn",context)
+                Utils.changeLanguage("bn", context)
             } else if (which == 3) {
-                Utils.changeLanguage("en",context)
+                Utils.changeLanguage("en", context)
             }
             refresh()
             dialog.dismiss()
